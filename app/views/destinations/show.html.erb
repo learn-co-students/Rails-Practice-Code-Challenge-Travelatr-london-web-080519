@@ -1,0 +1,27 @@
+<h1>Destination:</h1>
+<p>Name: <%= @destination.name %></p>
+<p>Country: <%= @destination.country %></p>
+
+
+<% if @destination.posts.empty?%>
+    <h3>This destination has no posts</h3>
+<% else %>
+    <h3>Most liked Post: <%= link_to @destination.most_liked_post.title, @destination.most_liked_post %></h3>
+
+    <h3>Average age of all Bloggers: <%= @destination.av_age_of_uniq_bloggers %></h3>
+
+    <h3>5 Most Recent Posts:</h3>
+    <% @destination.five_most_recent_posts.each do |post| %>
+        <div class='post'>
+            <h4><%= link_to post.title, post %> by <%= link_to post.blogger.name, post.blogger %></h4>
+            <p><%= post.content %></p>
+            <span><%= post.likes %> Likes</span> <br>
+            <span><%= post.created_at.strftime("%d %b %Y, %H:%M") %></span>
+        </div>
+    <% end %>
+<% end %>
+
+
+
+
+

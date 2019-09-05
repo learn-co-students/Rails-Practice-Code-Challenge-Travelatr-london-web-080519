@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <%= link_to "New Post", new_post_path %>
+    <%= link_to "New Blogger", new_blogger_path %>
+
+    <% if flash[:errors] %>
+      <ul class="error_list">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>
