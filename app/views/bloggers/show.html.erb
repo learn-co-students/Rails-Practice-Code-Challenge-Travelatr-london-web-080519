@@ -1,0 +1,17 @@
+<h1><%= @blogger.name %></h1>
+<p>Total likes: <%= @blogger.total_likes %></p>
+
+<% if @blogger.posts.length == 0 %>
+    <p>Blogger didn't post anything</p>
+<% else %>
+    <h2>Featured post:</h2>
+    <h3><%= @blogger.post_most_liked.title %></h3>
+    <p><%= @blogger.post_most_liked.content %></p>
+<% end %>
+
+<h2>Top 5 destinations: </h2>
+<ul>
+    <% @blogger.top_5_destinations.each do |destination| %>
+        <li><%= link_to destination.name, destination %></li>
+    <% end %>
+</ul>
