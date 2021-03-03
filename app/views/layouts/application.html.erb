@@ -9,6 +9,21 @@
   </head>
 
   <body>
+
+  <nav>
+    <%= link_to "New Blogger", new_blogger_path %>
+    <%= link_to "New Post", new_post_path %>
+  </nav>
+
+  <% if flash[:errors] %>
+    <ul>
+      <h2>There was an issue with the below:</h2>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>  
+  <% end %>
+  <br>
     <%= yield %>
   </body>
 </html>

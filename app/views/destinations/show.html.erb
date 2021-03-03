@@ -1,0 +1,14 @@
+<h1><%= @destination.name %></h1>
+
+<h2>Top 5 most recent posts: </h2>
+<ul>
+    <% @destination.top_5_recent_posts.map do |post| %>
+        <li><%= post.title %></li>
+    <% end %>
+</ul>
+
+<h2>Most featured</h2>
+<p><%= @destination.featured_post.title %></p>
+
+<h2>Average blogger age</h2>
+<p><%= @destination.average_blogger_age %> years old.</p>

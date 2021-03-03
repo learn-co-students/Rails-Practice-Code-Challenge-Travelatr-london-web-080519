@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+<h2>Blogger: <%= link_to @post.blogger.name, @post.blogger %></h2>
+<h2>Destination: <%= link_to @post.destination.name, @post.destination %></h2>
+<p>Total likes: <%= @post.likes %></p>
+<p><%= @post.content %></p>
+<%= link_to "Like", "/posts/#{@post.id}/new_like", {method: 'patch'} %>
+
