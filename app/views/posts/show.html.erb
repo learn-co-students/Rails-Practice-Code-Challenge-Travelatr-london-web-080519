@@ -1,0 +1,13 @@
+<h1>Post: </h1>
+<div class='post'>
+    <h3><%= @post.title %></h3>
+    <h4>Author: <%= link_to @post.blogger.name, @post.blogger %></h4>
+    <h4>Featured Destination: <%= link_to @post.destination.name, @post.destination %></h4>
+    <p><%= @post.content %></p>
+    <span><%= @post.likes %> Likes</span> <br>
+    <span><%= @post.created_at.strftime("%d %b %Y, %H:%M") %></span> <br><br>
+   
+    <%= form_tag "/posts/#{@post.id}/like", method: 'patch' do %>
+        <%= submit_tag "Like this Post" %>
+    <% end %>
+</div>
